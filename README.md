@@ -169,10 +169,11 @@ Note that these models are represented in TypeScript. The properties containing 
 
 #### Error Responses
 
-All error responses (responses which are not [ok](https://developer.mozilla.org/en-US/docs/Web/API/Response/ok)) will be in the following format:
+All error response streams will be [JSON-parsable](https://developer.mozilla.org/en-US/docs/Web/API/Response/json) and will be in the following format:
 
 ```javascript
 {
-  error: string;
+  httpStatusCode: number;
+  errorMessage: string;
 }
 ```
