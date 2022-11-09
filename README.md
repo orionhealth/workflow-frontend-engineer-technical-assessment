@@ -98,7 +98,7 @@ You must display all of the information for the patient, and you must format the
 
 In order to faciliate this technical challenge, we have provided a [documented Mock API](#mock-api-documentation).
 
-You must add the `fetch-mock` library as a dependency in your application (for example: `npm install --save fetch-mock`) and you must copy and paste the contents of the [Mock API Source](#mock-api-source) section below into your application and then you must call the function to initialize the mock API. ES6 Example:
+You must add the `fetch-mock` library as a dependency in your application (for example: `npm install --save fetch-mock`) and you must copy and paste the contents of the [Mock API Source file](mock-api-source.js) into your application and then you must call it to initialize the mock API. ES6 Example:
 
 ```javascript
 import fetchMock from 'fetch-mock';
@@ -176,5 +176,3 @@ All error responses (responses which are not [ok](https://developer.mozilla.org/
   error: string;
 }
 ```
-
-## [Mock API Source](mock-api-source.js)
