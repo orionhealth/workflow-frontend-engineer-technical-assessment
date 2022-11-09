@@ -1,21 +1,12 @@
 # Tasks And Workflow Frontend Engineer Technical Assessment
 
-Your task is to develop a frontend UI which consumes our [Mock API](#mock-api) to allow clinicians to login and view their patients.
+The intent of this technical assessment is for you to build a frontend web application which allows clinicians to login and view their patients.
 
-You should spend two to four hours on this challenge.
+We have developed a mock API for use in implementing the features of the app.
 
-Your response will be evaluated based on the quality of the code and the extent to which the challenge has been completed.
+Don't worry if you are unable to complete all of the features of the app. We are mainly interested in seeing your approach to designing and implementing a quality frontend web application.
 
-## Tech Stack
-
-You may use whatever technologies you would like to implement your application, but here is the tech stack we use:
-
-- React
-- Material UI
-- TypeScript
-- Create React App
-
-And here is a link to an example containing the above technologies, which may be used to kickstart your web application: https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-typescript (requires at least Node.js v16).
+You should spend 2-4 hours on this challenge but this is a general guide - not a rule. You are free to submit your response as you like.
 
 ## Submitting Your Response
 
@@ -25,9 +16,18 @@ You may submit your response in a variety of ways:
 - Send us a link to a private Git repository with a link for us to have view permissions
 - Send us a zip file of your code
 
-Please include instructions in the README on how to run your application. Ideally, it should be as simple as `npm start`.
+Please include instructions in the README on how to run your app. Ideally, it should be as simple as `npm start`. Also, feel free to include any justifications for design decisions you've 
 
-You do not need to fully complete the challenge in order to submit your response.
+## Tech Stack
+
+You may use whatever technologies you would like to implement your app, but here is the tech stack we use:
+
+- React
+- Material UI
+- TypeScript
+- Create React App
+
+And here is a link to an example containing the above technologies, which may be used to kickstart your app: https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-typescript (requires at least Node.js v16).
 
 ## Instructions
 
@@ -35,7 +35,7 @@ This section explains the tasks you must perform and provides hints and details 
 
 For each task, reference the [Mock API](#mock-api-documentation) and [Models](#models) sections to understand how to call each endpoint and what the response formats are.
 
-Here is a diagram showing a UI wireframe of the application:
+Here is a diagram showing a UI wireframe of the app:
 
 ![UI wireframe](ui-wireframe.png)
 
@@ -98,7 +98,7 @@ You must display all of the information for the patient, and you must format the
 
 In order to faciliate this technical challenge, we have provided a [documented Mock API](#mock-api-documentation).
 
-You must add the `fetch-mock` library as a dependency in your application (for example: `npm install --save fetch-mock`) and you must copy and paste the contents of the [Mock API Source file](mock-api-source.js) into your application and then you must call it to initialize the mock API. ES6 Example:
+You must add the `fetch-mock` library as a dependency in your app (for example: `npm install --save fetch-mock`) and you must copy and paste the contents of the [Mock API Source file](mock-api-source.js) into your app and then you must call it to initialize the mock API. ES6 Example:
 
 ```javascript
 import fetchMock from 'fetch-mock';
