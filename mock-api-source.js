@@ -16,15 +16,28 @@ function initFetchMock(fetchMockInstance) {
   function generateRandomDelay() {
     return Math.floor(Math.random() * 2000) + 500;
   }
-  var SESSION_TOKEN_SESSION_STORAGE_KEY = 'session-token';
-  var LOGGED_IN_USER_SESSION_STORAGE_KEY = 'logged-in-user';
-  function generateErrorResponse(status, errorMessage) {
+  function getRequestAuthOrErrorResponse(opts) {
+    if (opts.headers === undefined) {
+      return generateErrorResponse(401, 'Missing Authorization header');
+    }
+    if (opts.headers.hasOwnProperty('Authorization')) {
+      return opts.headers.Authorization;
+    } else if (opts.headers.get) {
+      return opts.headers.get('Authorization');
+    } else {
+      return generateErrorResponse(401, 'Missing Authorization header');
+    }
+  }
+    function generateErrorResponse(status, errorMessage) {
     return new Response(JSON.stringify({
-      error: errorMessage
+      httpStatusCode: status,
+      errorMessage: errorMessage
     }), {
       status: status
     });
   }
+  var SESSION_TOKEN_SESSION_STORAGE_KEY = 'session-token';
+  var LOGGED_IN_USER_SESSION_STORAGE_KEY = 'logged-in-user';
   var JOSH_SMITH_USERNAME = 'joshs';
   var JOSH_SMITH_BASIC_AUTH = 'Basic am9zaHM6dnV1R2ZLa3Q=';
   var JOSH_SMITH_DETAILS = {
@@ -33,7 +46,7 @@ function initFetchMock(fetchMockInstance) {
     title: 'Dr',
     firstName: 'Joshua',
     preferredName: 'Josh',
-    familyName: 'Smith',
+    familyName: 'Smith'
   };
   var JOSH_SMITH_PATIENTS = [{
     id: 'STEVEA-0012',
@@ -67,7 +80,7 @@ function initFetchMock(fetchMockInstance) {
     role: 'Physician',
     firstName: 'Amy',
     familyName: 'Barker',
-    suffix: 'M.D.',
+    suffix: 'M.D.'
   };
   var AMY_BARKER_PATIENTS = [{
     id: 'JAYC-8391',
@@ -98,13 +111,9 @@ function initFetchMock(fetchMockInstance) {
     url: 'path:/login',
     delay: generateRandomDelay()
   }, function (_path, opts, e) {
-    var auth;
-    if (opts.headers.hasOwnProperty('Authorization')) {
-      auth = opts.headers.Authorization;
-    } else if (opts.headers.get) {
-      auth = opts.headers.get('Authorization');
-    } else {
-      return generateErrorResponse(400, 'Missing Authorization header with Basic Authentication');
+    var auth = getRequestAuthOrErrorResponse(opts);
+    if (typeof auth !== 'string') {
+      return auth;
     }
     if (auth === JOSH_SMITH_BASIC_AUTH) {
       window.sessionStorage.setItem(SESSION_TOKEN_SESSION_STORAGE_KEY, generateId());
@@ -125,13 +134,9 @@ function initFetchMock(fetchMockInstance) {
     if (sessionToken === null) {
       return generateErrorResponse(401, 'You must be logged in view your details');
     }
-    var auth;
-    if (opts.headers.hasOwnProperty('Authorization')) {
-      auth = opts.headers.Authorization;
-    } else if (opts.headers.get) {
-      auth = opts.headers.get('Authorization');
-    } else {
-      return generateErrorResponse(401, 'Missing Authorization header');
+    var auth = getRequestAuthOrErrorResponse(opts);
+    if (typeof auth !== 'string') {
+      return auth;
     }
     if (auth !== sessionToken) {
       return generateErrorResponse(401, 'Incorrect credentials provided');
@@ -148,13 +153,9 @@ function initFetchMock(fetchMockInstance) {
     if (sessionToken === null) {
       return generateErrorResponse(401, 'You must be logged in to view your patients');
     }
-    var auth;
-    if (opts.headers.hasOwnProperty('Authorization')) {
-      auth = opts.headers.Authorization;
-    } else if (opts.headers.get) {
-      auth = opts.headers.get('Authorization');
-    } else {
-      return generateErrorResponse(401, 'Missing Authorization header');
+    var auth = getRequestAuthOrErrorResponse(opts);
+    if (typeof auth !== 'string') {
+      return auth;
     }
     if (auth !== sessionToken) {
       return generateErrorResponse(401, 'Incorrect credentials provided');
@@ -173,13 +174,9 @@ function initFetchMock(fetchMockInstance) {
     if (sessionToken === null) {
       return generateErrorResponse(401, 'You must be logged in to view patient details');
     }
-    var auth;
-    if (opts.headers.hasOwnProperty('Authorization')) {
-      auth = opts.headers.Authorization;
-    } else if (opts.headers.get) {
-      auth = opts.headers.get('Authorization');
-    } else {
-      return generateErrorResponse(401, 'Missing Authorization header');
+    var auth = getRequestAuthOrErrorResponse(opts);
+    if (typeof auth !== 'string') {
+      return auth;
     }
     if (auth !== sessionToken) {
       return generateErrorResponse(401, 'Incorrect credentials provided');
