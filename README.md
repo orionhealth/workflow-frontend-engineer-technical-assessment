@@ -10,11 +10,9 @@ We recommend spending 2-4 hours on this assessment but this is a general guide -
 
 ## Submitting Your Response
 
-You may submit your response in a variety of ways:
+To submit your response, please email a link to your Git repository to <paul.reedy@orionhealth.com>.
 
-- Send us a link to your public Git repository containing your code (preferred)
-- Send us a link to a private Git repository with a link for us to have view permissions
-- Send us a zip file of your code
+The repository must be accessible by us. If it is not publicly-accessible, please include the relevant information for us to have permission to access it.
 
 Please include instructions in the README on how to run your app. Ideally, it should be as simple as `npm start`. Also, feel free to include any justifications for design decisions you've made.
 
@@ -45,7 +43,7 @@ Your first task is to develop the login page.
 
 The login page needs a username field, a password field, and a login button.
 
-You must use the `/login` endpoint of our [Mock API](#mock-api-documentation) to perform the login. Note that the login endpoint uses [Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#basic_authentication) which is based on the username and password to perform the login.
+You must use the `/login` endpoint of our [Mock API](#mock-api-documentation) to perform the login. Note that the login endpoint uses [Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#basic) which is based on the username and password to perform the login.
 
 Our mock API works with the following two clinicians with the following login credentials:
 
@@ -116,7 +114,7 @@ fetch('/login'); // will return a mocked promise
 
 | Description                       | URL                           | HTTP Method | Request Headers                                                                                                                             | Success Response Format (Code + Body)           | Error Response Format (Code + Body)                                                                                                                                  |
 | --------------------------------- | ----------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Login                             | `/login`                      | `POST`      | [Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#basic_authentication) `Authorization` header | `204` - empty body                              | `400` if you have not provided an `Authorization` header in your request or if the credentials provided in it are incorrect                                          |
+| Login                             | `/login`                      | `POST`      | [Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#basic) `Authorization` header                | `204` - empty body                              | `400` if you have not provided an `Authorization` header in your request or if the credentials provided in it are incorrect                                          |
 | Retrieve a Clinician's Details    | `/clinician-details`          | `GET`       | `Authorization` header with a valid session token                                                                                           | `200` - [Clinician Details](#clinician-details) | `401` if you are not logged or if you have not provided a valid session token                                                                                        |
 | Retrieve Patients for a Clinician | `/patients`                   | `GET`       | `Authorization` header with a valid session token                                                                                           | `200` - [Patient List](#patient-list)           | `401` if you are not logged or if you have not provided a valid session token                                                                                        |
 | Retrieve Patient Details          | `/patient-details/:patientId` | `GET`       | `Authorization` header with a valid session token                                                                                           | `200` - [Patient Details](#patient-details)     | `401` if you are not logged or if you have not provided a valid session token<br>`404` if the requested patient does not exist for the currently logged in clinician |
