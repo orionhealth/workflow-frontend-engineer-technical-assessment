@@ -1,4 +1,4 @@
-# Tasks And Workflow Frontend Engineer Technical Assessment
+# Workflow Frontend Engineer Technical Assessment
 
 The intent of this technical assessment is for you to build a frontend web application which allows clinicians to login and view their patients.
 
