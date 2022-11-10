@@ -6,7 +6,7 @@ We have developed a mock API for use in implementing the features of the app.
 
 Don't worry if you are unable to complete all of the features of the app. We are mainly interested in seeing your approach to designing and implementing a quality frontend web application.
 
-You should spend 2-4 hours on this challenge but this is a general guide - not a rule. You are free to submit your response as you like.
+We recommend spending 2-4 hours on this assessment but this is a general guide - not a rule. You are free to submit your response as you like.
 
 ## Submitting Your Response
 
@@ -16,7 +16,7 @@ You may submit your response in a variety of ways:
 - Send us a link to a private Git repository with a link for us to have view permissions
 - Send us a zip file of your code
 
-Please include instructions in the README on how to run your app. Ideally, it should be as simple as `npm start`. Also, feel free to include any justifications for design decisions you've 
+Please include instructions in the README on how to run your app. Ideally, it should be as simple as `npm start`. Also, feel free to include any justifications for design decisions you've made.
 
 ## Tech Stack
 
@@ -74,7 +74,7 @@ If they have a preferred name, their formatted name is:
 
 Otherwise, their formatted name is:
 
-`<title> <middleName> <familyName> <suffix>`
+`<title> <firstName> <middleName> <familyName> <suffix>`
 
 #### Viewing a Clinician's Patients
 
