@@ -14,7 +14,7 @@ To submit your response, please email a link to your Git repository to <paul.ree
 
 The repository must be accessible by us. If it is not publicly-accessible, please include the relevant information for us to have permission to access it.
 
-Please include instructions in the README on how to run your app. Ideally, it should be as simple as `npm start`. Also, feel free to include any justifications for design decisions you've made.
+Please include instructions in the README on how to run your app. Ideally, it should be as simple as `npm start`. Also, feel free to include any justifications for design decisions you've made, and descriptions of anything you would have done if you had more time.
 
 ## Tech Stack
 
