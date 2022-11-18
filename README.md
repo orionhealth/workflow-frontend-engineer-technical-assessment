@@ -68,7 +68,7 @@ You must display the clinician's formatted name, their role.
 
 If they have a preferred name, their formatted name is:
 
-`<title> (<preferredName>) <middleName> <familyName> <suffix>`
+`<title> <preferredName> (<firstName>) <middleName> <familyName> <suffix>`
 
 Otherwise, their formatted name is:
 
