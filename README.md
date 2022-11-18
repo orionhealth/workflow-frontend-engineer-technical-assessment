@@ -50,7 +50,7 @@ Our mock API works with the following two clinicians with the following login cr
 | username | password |
 | -------- | -------- |
 | joshs    | joshs_pw |
-| amyb     | joshs_pw |
+| amyb     | amyb_pw  |
 
 The login endpoint will return a session token in it's success response body. When calling any of the other secure endpoints, you must use this session token to authorize your requests by supplying it in the request's `Authorization` header.
 
