@@ -1,8 +1,8 @@
 function initFetchMock(fetchMockInstance) {
   /*
    * Clinician Logins (Username & Password)
-   * joshs vuuGfKkt
-   * amyb qhZyuKGf
+   * joshs joshs_pw
+   * amyb amyb_pw
    */
   function generateId() {
     var result = '';
@@ -28,7 +28,7 @@ function initFetchMock(fetchMockInstance) {
       return generateErrorResponse(401, 'Missing Authorization header');
     }
   }
-    function generateErrorResponse(status, errorMessage) {
+  function generateErrorResponse(status, errorMessage) {
     return new Response(JSON.stringify({
       httpStatusCode: status,
       errorMessage: errorMessage
@@ -39,7 +39,7 @@ function initFetchMock(fetchMockInstance) {
   var SESSION_TOKEN_SESSION_STORAGE_KEY = 'session-token';
   var LOGGED_IN_USER_SESSION_STORAGE_KEY = 'logged-in-user';
   var JOSH_SMITH_USERNAME = 'joshs';
-  var JOSH_SMITH_BASIC_AUTH = 'Basic am9zaHM6dnV1R2ZLa3Q=';
+  var JOSH_SMITH_BASIC_AUTH = 'Basic am9zaHM6am9zaHNfcHc=';
   var JOSH_SMITH_DETAILS = {
     username: 'joshs',
     role: 'General Practitioner',
@@ -74,7 +74,7 @@ function initFetchMock(fetchMockInstance) {
     }
   };
   var AMY_BARKER_USERNAME = 'amyb';
-  var AMY_BARKER_BASIC_AUTH = 'Basic YW15YjpxaFp5dUtHZg==';
+  var AMY_BARKER_BASIC_AUTH = 'Basic YW15YjphbXliX3B3';
   var AMY_BARKER_DETAILS = {
     username: 'amyb',
     role: 'Physician',
@@ -115,15 +115,24 @@ function initFetchMock(fetchMockInstance) {
     if (typeof auth !== 'string') {
       return auth;
     }
+    var sessionToken = generateId();
     if (auth === JOSH_SMITH_BASIC_AUTH) {
-      window.sessionStorage.setItem(SESSION_TOKEN_SESSION_STORAGE_KEY, generateId());
+      window.sessionStorage.setItem(SESSION_TOKEN_SESSION_STORAGE_KEY, sessionToken);
       window.sessionStorage.setItem(LOGGED_IN_USER_SESSION_STORAGE_KEY, JOSH_SMITH_USERNAME);
-      return new Response(204);
+      return new Response(JSON.stringify({
+        sessionToken: sessionToken
+      }), {
+        status: 200
+      });
     }
     if (auth === AMY_BARKER_BASIC_AUTH) {
-      window.sessionStorage.setItem(SESSION_TOKEN_SESSION_STORAGE_KEY, generateId());
+      window.sessionStorage.setItem(SESSION_TOKEN_SESSION_STORAGE_KEY, sessionToken);
       window.sessionStorage.setItem(LOGGED_IN_USER_SESSION_STORAGE_KEY, AMY_BARKER_USERNAME);
-      return new Response(204);
+      return new Response(JSON.stringify({
+        sessionToken: sessionToken
+      }), {
+        status: 200
+      });
     }
     return generateErrorResponse(400, 'You have provided incorrect credentials');
   }).get({
