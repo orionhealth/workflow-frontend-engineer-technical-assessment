@@ -134,7 +134,7 @@ function initFetchMock(fetchMockInstance) {
         status: 200
       });
     }
-    return generateErrorResponse(400, 'You have provided incorrect credentials');
+    return generateErrorResponse(401, 'You have provided incorrect credentials');
   }).get({
     url: 'path:/clinician-details',
     delay: generateRandomDelay()
