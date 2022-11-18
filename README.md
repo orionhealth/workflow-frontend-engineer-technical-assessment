@@ -6,7 +6,7 @@ We have developed a mock API for use in implementing the features of the app.
 
 Don't worry if you are unable to complete all of the features of the app. We are mainly interested in seeing your approach to designing and implementing a quality frontend web application.
 
-We recommend spending 2-4 hours on this assessment but this is a general guide - not a rule. You are free to submit your response as you like.
+We recommend spending at least 4 hours on this assessment but this is a general guide - not a rule. You are free to submit your response as you like.
 
 ## Submitting Your Response
 
@@ -49,10 +49,10 @@ Our mock API works with the following two clinicians with the following login cr
 
 | username | password |
 | -------- | -------- |
-| joshs    | vuuGfKkt |
-| amyb     | qhZyuKGf |
+| joshs    | joshs_pw |
+| amyb     | joshs_pw |
 
-Upon logging in, the mock API will make a randomly-generated session token available in the browser's [Session Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) under the key: `session-token`. When calling any of the other secure endpoints, you must use it as the value of the request's `Authorization` header.
+The login endpoint will return a session token in it's success response body. When calling any of the other secure endpoints, you must use this session token to authorize your requests by supplying it in the request's `Authorization` header.
 
 ### Dashboard
 
@@ -114,7 +114,7 @@ fetch('/login'); // will return a mocked promise
 
 | Description                       | URL                           | HTTP Method | Request Headers                                                                                                                             | Success Response Format (Code + Body)           | Error Response Format (Code + Body)                                                                                                                                  |
 | --------------------------------- | ----------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Login                             | `/login`                      | `POST`      | [Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#basic) `Authorization` header                | `204` - empty body                              | `400` if you have not provided an `Authorization` header in your request or if the credentials provided in it are incorrect                                          |
+| Login                             | `/login`                      | `POST`      | [Basic Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#basic) `Authorization` header                | `200` - [Session Token](#session-token) | `400` if you have not provided an `Authorization` header in your request or if the credentials provided in it are incorrect                                          |
 | Retrieve a Clinician's Details    | `/clinician-details`          | `GET`       | `Authorization` header with a valid session token                                                                                           | `200` - [Clinician Details](#clinician-details) | `401` if you are not logged or if you have not provided a valid session token                                                                                        |
 | Retrieve Patients for a Clinician | `/patients`                   | `GET`       | `Authorization` header with a valid session token                                                                                           | `200` - [Patient List](#patient-list)           | `401` if you are not logged or if you have not provided a valid session token                                                                                        |
 | Retrieve Patient Details          | `/patient-details/:patientId` | `GET`       | `Authorization` header with a valid session token                                                                                           | `200` - [Patient Details](#patient-details)     | `401` if you are not logged or if you have not provided a valid session token<br>`404` if the requested patient does not exist for the currently logged in clinician |
@@ -122,6 +122,14 @@ fetch('/login'); // will return a mocked promise
 ### Models
 
 Note that these models are represented in TypeScript. The properties containing a `?` symbol are optional. Properties ending with `[]` represent an array of those properties.
+
+#### Session Token
+
+```typescript
+{
+  sessionToken: string;
+}
+```
 
 #### Clinician Details
 
