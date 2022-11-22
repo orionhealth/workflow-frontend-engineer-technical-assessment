@@ -10,7 +10,7 @@ We recommend spending at least 4 hours on this assessment but this is a general 
 
 ## Submitting Your Response
 
-To submit your response, please email a link to your Git repository to <workflow.recruitment@orionhealth.com>.
+To submit your response, please email a link to your Git repository to <workflow.recruitment@orionhealth.com> and cc: <paulr@orionhealth.com>.
 
 The repository must be accessible by us. If it is not publicly-accessible, please include the relevant information for us to have permission to access it.
 
