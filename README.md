@@ -14,11 +14,17 @@ To submit your response, please email a link to your Git repository to <workflow
 
 The repository must be accessible by us. If it is not publicly-accessible, please include the relevant information for us to have permission to access it.
 
+## Assessment
+
+Our assessment of your test submission will consider the presentation and quality of the application that you build, as it appears to the user, as well as your technical design, and the quality and clarity of your implementation.
+
 Please include instructions in the README on how to run your app. Ideally, it should be as simple as `npm start`. Also, feel free to include any justifications for design decisions you've made, and descriptions of anything you would have done if you had more time.
+
+If you are able to provide a running demo, this would also be appreciated.
 
 ## Tech Stack
 
-You may use whatever technologies you would like to implement your app, but here is the tech stack we use:
+We strongly recommend that you implement your app using the tech stack that we use:
 
 - React
 - Material UI
@@ -32,6 +38,8 @@ And here is a link to an example containing the above technologies, which may be
 This section explains the tasks you must perform and provides hints and details on how to do it.
 
 For each task, reference the [Mock API](#mock-api-documentation) and [Models](#models) sections to understand how to call each endpoint and what the response formats are.
+
+Treat the Mock API as an actual API, ie: do not rely on any implementation details of the API to build your app.
 
 Here is a diagram showing a UI wireframe of the app:
 
