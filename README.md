@@ -31,7 +31,7 @@ We strongly recommend that you implement your app using the tech stack that we u
 - TypeScript
 - Create React App
 
-And here is a link to an example containing the above technologies, which may be used to kickstart your app: https://github.com/mui/material-ui/tree/master/examples/create-react-app-with-typescript (requires at least Node.js v16).
+And here is a link to an example containing the above technologies, which may be used to kickstart your app: https://github.com/mui/material-ui/tree/master/examples/material-cra-ts (requires at least Node.js v16).
 
 ## Instructions
 
