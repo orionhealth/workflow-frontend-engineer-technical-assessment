@@ -41,7 +41,7 @@ For each task, reference the [Mock API](#mock-api-documentation) and [Models](#m
 
 Treat the Mock API as an actual API, ie: do not rely on any implementation details of the API to build your app.
 
-Here is a diagram showing a UI wireframe of the app:
+Here is a diagram showing a low-fidelity UI wireframe of the app (feel free to enhance the visual design):
 
 ![UI wireframe](ui-wireframe.png)
 
