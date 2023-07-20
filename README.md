@@ -20,7 +20,7 @@ Our assessment of your test submission will consider the presentation and qualit
 
 Please include instructions in the README on how to run your app. Ideally, it should be as simple as `npm start`. Also, feel free to include any justifications for design decisions you've made, and descriptions of anything you would have done if you had more time.
 
-If you are able to provide a running demo, this would also be appreciated.
+It is strongly encouraged to provide a **running demo** of your application if possible, to help us review your submission.
 
 ## Tech Stack
 
